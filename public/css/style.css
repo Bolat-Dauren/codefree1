@@ -1,0 +1,183 @@
+/* codefree/static/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+    background-size: 600% 600%;
+    animation: gradient 15s infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensure full height of the viewport */
+    color: #fff;
+}
+
+
+form label {
+    color: #fff;
+    font-weight: bold;
+}
+
+
+#about-text {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em; /* Установите размер шрифта по вашему усмотрению */
+    white-space: pre-line; /* Это обеспечит перенос строки при наличии символов новой строки */
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1 {
+    color: #fff;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.courses-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.course {
+    background: #333;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 30%; /* Adjust as needed */
+    text-align: center;
+}
+
+/* Обновленный стиль для всех кнопок с красивым градиентным фоном */
+button, a {
+    margin-top: 10px;
+    background: linear-gradient(to top, #3498db, #2980b9); /* Используйте ваш градиентный цвет */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px; /* Устанавливаем радиус границы */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover, a:hover {
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+}
+
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px; /* Добавленный отступ между футером и кнопкой */
+}
+
+.website, .follow-us {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 50px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin-right: 20px; /* Отступ между иконками */
+}
+
+.youtube { background-image: url('youtube-icon.png'); }
+.instagram { background-image: url('instagram-icon.png'); }
+.x { background-image: url('x-icon.png'); }
+.facebook { background-image: url('facebook-icon.png'); }
+.linkedin { background-image: url('linkedin-icon.png'); }
+
+
+
+
+/* Стилизация выпадающего списка выбора языка */
+#language-select {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top, #3498db, #2980b9);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    appearance: none; /* Убираем стандартный стрелочный элемент */
+    -webkit-appearance: none; /* Для поддержки вебкит-браузерами */
+    -moz-appearance: none; /* Для поддержки Firefox */
+}
+
+/* Стили при наведении на выпадающий список */
+#language-select:hover {
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+}
+
+/* Стили для опций в выпадающем списке */
+#language-select option {
+    background: #333;
+    color: #fff;
+    font-size: 1em;
+}
+
+/* Стили при наведении на опции в выпадающем списке */
+#language-select option:hover {
+    background: #555;
+}
+
+
+
+/* Пример стилей для страницы профиля */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.profile-info {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.profile-info p {
+    margin: 0 0 10px;
+}
+
+.profile-info strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.profile-button {
+    margin-top: 20px; /* добавляем немного отступа сверху */
+    padding: 10px 25px; /* увеличиваем отступы внутри кнопки */
+    font-size: 1.0em; /* увеличиваем размер текста кнопки */
+}

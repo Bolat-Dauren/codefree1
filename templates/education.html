@@ -1,0 +1,52 @@
+<!-- codefree/templates/education.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFree - Education</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div id="navbar-container"></div>
+
+<h1>Learn Programming</h1>
+
+<div class="courses-container">
+    <div class="course" id="java-course">
+        <h2>Learn Java</h2>
+        <p>Get hands-on experience in Java programming with this interactive and practical course.</p>
+        <button onclick="viewCourse('java')">View this Course</button>
+    </div>
+
+    <div class="course" id="cpp-course">
+        <h2>Learn C++</h2>
+        <p>Join this interactive and hands-on C++ course to master the basic syntax of the language.</p>
+        <button onclick="viewCourse('cpp')">View this Course</button>
+    </div>
+
+    <div class="course" id="javascript-course">
+        <h2>Learn JavaScript</h2>
+        <p>Explore the world of web development with our JavaScript course covering the basics and beyond.</p>
+        <button onclick="viewCourse('javascript')">View this Course</button>
+    </div>
+</div>
+
+<button onclick="goBack()">Back</button>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    function viewCourse(course) {
+        // You can add logic here to navigate to the specific course page
+        alert("Viewing " + course + " course");
+    }
+</script>
+<script>
+    document.getElementById('navbar-container').innerHTML = '<object type="text/html" data="/views/navbar.html"></object>';
+</script>
+</body>
+</html>

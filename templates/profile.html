@@ -1,0 +1,38 @@
+<!-- codefree/templates/profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+<h1>User Profile</h1>
+<div id="profile">
+    <p><strong>ID:</strong> <span id="userId"></span></p>
+    <p><strong>Username:</strong> <span id="username"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <p><strong>Password:</strong> <span id="password"></span></p>
+</div>
+
+<script>
+    fetch('/profile')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch user data');
+            }
+            return response.json();
+        })
+        .then(userData => {
+            document.getElementById("userId").textContent = userData._id;
+            document.getElementById("username").textContent = userData.username;
+            document.getElementById("email").textContent = userData.email;
+            document.getElementById("password").innerHTML = "<input type='password' value='" + userData.password + "' readonly />";
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+</script>
+</body>
+</html>

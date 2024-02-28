@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #222222, #444444); /* Темный градиентный фон */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #editor-container {
+            width: 80%; /* Ширина контейнера редактора */
+            max-width: 600px; /* Максимальная ширина контейнера редактора */
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+        h1 {
+            color: #ffffff; /* Белый цвет текста */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #codeForm {
+            text-align: center;
+        }
+
+        #output {
+            margin-top: 20px;
+            text-align: left;
+            color: #ffffff; /* Белый цвет текста */
+        }
+
+        #output pre {
+            background-color: #555555; /* Цвет фона вывода */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            resize: vertical;
+            background-color: #444444; /* Цвет фона текстового поля */
+            color: #ffffff; /* Белый цвет текста */
+            border: 1px solid #666666; /* Цвет рамки */
+        }
+
+        button[type="submit"] {
+            background-color: #007bff; /* Цвет кнопки Run */
+            color: #ffffff; /* Белый цвет текста кнопки */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Цвет кнопки Run при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div id="editor-container">
+        <h1>Code Editor</h1>
+        <form id="codeForm">
+            <textarea id="code" name="code" rows="10" cols="50"></textarea><br>
+            <button type="submit">Run</button>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById("codeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var code = document.getElementById("code").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/run", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("output").innerHTML = "<pre>" + xhr.responseText + "</pre>";
+                }
+            };
+            xhr.send("code=" + encodeURIComponent(code));
+        });
+    </script>
+</body>
+</html>

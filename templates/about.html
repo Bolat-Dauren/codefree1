@@ -1,0 +1,41 @@
+<!-- codefree/templates/about.html -->
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CodeFree - About Us</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.9.6/ace.js"></script>
+    </head>
+    <body>
+    <div id="navbar-container"></div>
+
+    <h1>About CodeFree</h1>
+    <p id="about-text">
+        CodeFree is a platform dedicated to promoting programming education and providing tools for coding enthusiasts.
+        Learn, practice, and explore the world of programming with us!
+    </p>
+    <div class="footer">
+        <p class="website">www.codefree.kz</p>
+        <p class="follow-us">Follow us:</p>
+        <div class="social-icons">
+            <a href="#" class="icon youtube"></a>
+            <a href="#" class="icon instagram"></a>
+            <a href="#" class="icon x"></a>
+            <a href="#" class="icon facebook"></a>
+            <a href="#" class="icon linkedin"></a>
+        </div>
+    </div>
+    <button onclick="goBack()">Back</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>
+        document.getElementById('navbar-container').innerHTML = '<object type="text/html" data="/views/navbar.html"></object>';
+    </script>
+    </body>
+    </html>
