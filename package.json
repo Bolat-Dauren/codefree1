@@ -1,16 +1,12 @@
 {
-    "homepage": "https://Bolat-Dauren.github.io/codefree_Python",
   "name": "codefree",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "concurrently \"npm run dauren\" \"python app.py\"",
-    "dauren": "node app.js",
-        "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dauren": "node app.js"
   },
-
   "private": true,
   "dependencies": {
     "express": "^4.18.2",
