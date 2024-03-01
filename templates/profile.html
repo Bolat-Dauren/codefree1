@@ -1,38 +1,33 @@
-<!-- codefree/templates/profile.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>User Profile</h1>
-<div id="profile">
-    <p><strong>ID:</strong> <span id="userId"></span></p>
-    <p><strong>Username:</strong> <span id="username"></span></p>
-    <p><strong>Email:</strong> <span id="email"></span></p>
-    <p><strong>Password:</strong> <span id="password"></span></p>
-</div>
+    <h1>User Profile</h1>
+    <div id="profile-data">
+        <p><strong>Username:</strong> <span id="username"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>User ID:</strong> <span id="userId"></span></p>
+    </div>
+    <button onclick="goBack()">Back</button>
 
-<script>
-    fetch('/profile')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch user data');
-            }
-            return response.json();
-        })
-        .then(userData => {
-            document.getElementById("userId").textContent = userData._id;
-            document.getElementById("username").textContent = userData.username;
-            document.getElementById("email").textContent = userData.email;
-            document.getElementById("password").innerHTML = "<input type='password' value='" + userData.password + "' readonly />";
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-</script>
+    <script>
+        fetch('/profile')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('username').innerText = data.username;
+                document.getElementById('email').innerText = data.email;
+                document.getElementById('userId').innerText = data._id;
+            })
+            .catch(error => console.error('Error fetching profile data:', error));
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

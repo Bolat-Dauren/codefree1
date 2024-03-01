@@ -1,21 +1,74 @@
-<!-- codefree/templates/editor.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Editor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #222222, #444444); /* Темный градиентный фон */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #ffffff; /* Белый цвет текста */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff; /* Цвет кнопки */
+            color: #ffffff; /* Белый цвет текста */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Цвет кнопки при наведении */
+        }
+
+        /* Стили для кнопки Logout */
+        #logout-btn {
+            position: absolute;
+            top: 10px; /* Отступ от верхнего края */
+            right: 20px; /* Отступ от правого края */
+            padding: 8px 15px; /* Размер кнопки */
+            background-color: #ff0000; /* Цвет кнопки Logout */
+            color: #ffffff; /* Белый цвет текста кнопки */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #logout-btn:hover {
+            background-color: #cc0000; /* Цвет кнопки Logout при наведении */
+        }
+
+    </style>
 </head>
 <body>
+    <button id="logout-btn" onclick="logout()">Logout</button>
     <h1>Code Editor</h1>
+    <button onclick="goToEditor()">Go to Editor</button>
+
+
     <script>
-    function goToEditor() {
-        window.location.href = 'http://localhost:5000';
-    }
-</script>
+        function goToEditor() {
+            window.location.href = 'http://localhost:5000';
+        }
 
-<button onclick="goToEditor()">Go to Editor</button>
-
+        function logout() {
+            window.location.href = 'http://localhost:8080'; // Redirect to the logout page
+        }
+    </script>
 </body>
 </html>
