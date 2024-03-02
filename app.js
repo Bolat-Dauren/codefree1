@@ -82,7 +82,6 @@ app.post('/register', async (req, res) => {
             return res.send('Username already exists. Choose a different one.');
         }
 
-        // Хэшируем пароль перед сохранением
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ username, email, password: hashedPassword });
         await newUser.save();
@@ -99,10 +98,8 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
     try {
-        // Используем метод findOne с фильтрами, чтобы найти пользователя по имени пользователя
         const user = await User.findOne({ username });
 
-        // Проверяем, найден ли пользователь и сравниваем хэшированный пароль
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.send('Invalid username or password.');
         }
